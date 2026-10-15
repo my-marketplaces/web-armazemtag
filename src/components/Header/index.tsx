@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Menu, UserRound } from "lucide-react";
+import { ChevronDown, Heart, Menu, ShoppingBag, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logos/horizontal/at-logo-horizontal-vermelho.png";
 import { navItems, type MegaNavItem } from "./megaMenu";
@@ -81,21 +82,26 @@ export function Header() {
   );
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 mx-auto max-w-6xl px-4 pt-4">
+    <header className="fixed inset-x-0 top-5 z-50 mx-auto w-[min(calc(100%-64px),1496px)] max-sm:top-3 max-sm:w-[calc(100%-24px)]">
       <div
         ref={wrapRef}
         className="relative"
         onMouseEnter={cancelClose}
         onMouseLeave={scheduleClose}
       >
-        <nav className="flex h-14 items-center justify-between rounded-full border border-border bg-background/90 px-5 shadow-nav backdrop-blur-xl">
-          <Link to="/" onClick={closeMenu}>
-            <img src={logo} alt="Pertinho" className="h-[72px] w-auto" />
+        <nav className="flex min-h-20 items-center justify-between gap-6 rounded-full border border-primary/5 bg-white/95 px-9 shadow-[0_12px_32px_rgba(43,25,28,0.11)] backdrop-blur-xl max-xl:gap-4 max-xl:px-6 max-sm:min-h-16 max-sm:gap-3 max-sm:px-4">
+          <Link to="/" onClick={closeMenu} className="flex shrink-0 items-center">
+            <img
+              src={logo}
+              alt="Armazém Tag"
+              className="h-14 w-auto max-h-14 object-contain max-sm:h-10"
+            />
           </Link>
 
-          <div className="hidden items-center gap-1 text-sm font-semibold lg:flex">
+          <div className="hidden items-center gap-0.5 text-sm font-semibold lg:flex">
             {navItems.map((item) => {
               const isActive = pathname === item.to;
+              const Icon = item.icon;
               const isMega = "links" in item;
 
               if (!isMega) {
@@ -109,12 +115,13 @@ export function Header() {
                         closeMenu();
                       }}
                       className={cn(
-                        "rounded-md px-4 py-2 transition",
+                        "inline-flex items-center gap-2 rounded-md px-3.5 py-2 transition",
                         openMega === null && isActive
                           ? "bg-primary text-primary-foreground"
                           : "text-foreground hover:text-primary",
                       )}
                     >
+                      <Icon className="size-[18px] shrink-0" strokeWidth={1.7} aria-hidden="true" />
                       {item.label}
                     </Link>
                   </div>
@@ -139,10 +146,18 @@ export function Header() {
                     aria-current={isActive ? "page" : undefined}
                     onClick={closeMenu}
                     className={cn(
-                      "rounded-md px-3 py-2 transition-colors duration-50",
+                      "inline-flex items-center gap-2 rounded-md py-2 pr-1.5 pl-3.5 transition-colors duration-50",
                       showWine ? "text-primary-foreground" : "text-foreground hover:text-primary",
                     )}
                   >
+                    <Icon
+                      className={cn(
+                        "size-[18px] shrink-0",
+                        showWine ? "text-primary-foreground" : "text-[#374151]",
+                      )}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                    />
                     {item.label}
                   </Link>
                   <button
@@ -173,10 +188,41 @@ export function Header() {
             })}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <Popover>
+              <PopoverTrigger
+                aria-label="Favoritos"
+                className="hidden size-10 items-center justify-center rounded-full text-[#374151] transition hover:bg-secondary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:inline-flex"
+              >
+                <Heart className="size-6" strokeWidth={1.7} aria-hidden="true" />
+              </PopoverTrigger>
+              <PopoverContent align="end" className="w-64">
+                <p className="text-sm font-semibold">Favoritos</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Você ainda não salvou nenhum item.
+                </p>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger
+                aria-label="Sacola"
+                className="hidden size-10 items-center justify-center rounded-full text-[#374151] transition hover:bg-secondary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:inline-flex"
+              >
+                <ShoppingBag className="size-6" strokeWidth={1.7} aria-hidden="true" />
+              </PopoverTrigger>
+              <PopoverContent align="end" className="w-64">
+                <p className="text-sm font-semibold">Sacola</p>
+                <p className="mt-1 text-sm text-muted-foreground">Sua sacola está vazia.</p>
+              </PopoverContent>
+            </Popover>
+
+            <span aria-hidden="true" className="mx-1 hidden h-6 w-px bg-border sm:block" />
+
             <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
               <UserRound /> Entrar
             </Button>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Abrir menu">
@@ -187,6 +233,7 @@ export function Header() {
                 {navItems.map((item) => {
                   if (!("links" in item)) {
                     const isActive = pathname === item.to;
+                    const Icon = item.icon;
                     return (
                       <DropdownMenuItem
                         key={item.label}
@@ -205,6 +252,7 @@ export function Header() {
                             setMobileOpen(null);
                           }}
                         >
+                          <Icon className="size-4" aria-hidden="true" />
                           {item.label}
                         </Link>
                       </DropdownMenuItem>
@@ -212,6 +260,7 @@ export function Header() {
                   }
 
                   const isOpen = mobileOpen === item.label;
+                  const Icon = item.icon;
                   return (
                     <div key={item.label} className="my-1">
                       <div className="flex items-center justify-between">
@@ -219,8 +268,9 @@ export function Header() {
                           to={item.to}
                           aria-current={pathname === item.to ? "page" : undefined}
                           onClick={() => setMobileOpen(null)}
-                          className="flex-1 rounded-md px-2 py-1.5 text-sm font-semibold transition-colors duration-100 hover:bg-[#ffeeed]"
+                          className="flex flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-sm font-semibold transition-colors duration-100 hover:bg-[#ffeeed]"
                         >
+                          <Icon className="size-4" aria-hidden="true" />
                           {item.label}
                         </Link>
                         <button
@@ -241,7 +291,7 @@ export function Header() {
                       {isOpen && (
                         <div
                           id={`mobile-panel-${item.label}`}
-                          className="ml-3 mt-1 space-y-0.5 border-l border-border pl-2"
+                          className="mt-1 ml-3 space-y-0.5 border-l border-border pl-2"
                         >
                           {item.links.map((link) => (
                             <DropdownMenuItem

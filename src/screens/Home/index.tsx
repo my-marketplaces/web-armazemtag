@@ -1,50 +1,61 @@
-import { ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
-import heroHome from "@/assets/hero-home.png";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { SolutionsGrid } from "@/components/SolutionsGrid";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CourierCta } from "@/components/CourierCta";
+import { MarketplaceSearch } from "@/components/MarketplaceSearch";
+import { MarketplaceMap } from "@/components/MarketplaceMap";
+import { MarketplaceBanner } from "@/components/MarketplaceBanner";
+import { MarketplaceFilters } from "@/components/MarketplaceFilters";
+import { FeaturedPlaces } from "@/components/FeaturedPlaces";
 
 export function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-background font-body text-foreground">
+    <main className="marketplace-home min-h-screen font-body text-foreground">
       <Header />
 
-      {/* Hero */}
-      <section id="top" className="relative h-dvh overflow-hidden bg-[#f5efdf] max-md:h-[100svh]">
-        <img
-          src={heroHome}
-          alt="Entregador chegando a um bairro com comércio local"
-          width={1920}
-          height={900}
-          className="absolute inset-0 h-full w-full object-cover object-bottom"
-        />
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col justify-center px-5 pt-[calc(var(--header-height)+49px)] pb-16 text-center">
-          <h1 className="font-display text-4xl font-extrabold leading-[.98] sm:text-6xl">
-            O delivery local começa perto e chega rápido.
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Conectamos você aos feirantes, restaurantes e comércios da região para uma entrega mais
-            rápida, sustentável e humana.
-          </p>
-          <Button asChild variant="hero" size="xl" className="mt-7 w-fit px-8 self-center">
-            <Link to="/estabelecimentos">
-              Começar pelo app <ArrowRight />
-            </Link>
-          </Button>
+      <section
+        aria-labelledby="marketplace-title"
+        className="mx-auto w-[min(calc(100%-64px),1608px)] pt-[118px] pb-6 max-sm:w-[calc(100%-24px)] max-sm:pt-[94px]"
+      >
+        <div className="mx-auto max-w-[996px]">
+          <MarketplaceSearch />
         </div>
+
+        <div className="mx-auto mt-3.5 mb-4.5 text-center">
+          <h1
+            id="marketplace-title"
+            className="font-display text-[clamp(34px,3.25vw,54px)] leading-[1.12] font-extrabold tracking-[-0.035em] text-[#080808] max-sm:text-[34px] max-sm:leading-[1.04]"
+          >
+            Compre, venda e descubra produtos perto de você.
+          </h1>
+
+          <p className="mx-auto mt-2 max-w-[1100px] text-[clamp(17px,1.35vw,22px)] leading-[1.25] text-[#897b79] max-sm:mt-3 max-sm:text-base max-sm:leading-[1.4]">
+            Conectamos você a feiras, mercados, lojas e vendedores da região para encontrar ofertas,
+            <br className="hidden lg:block" /> divulgar produtos e fazer bons negócios com mais
+            proximidade e confiança.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-[minmax(0,0.97fr)_minmax(0,1.03fr)] items-stretch gap-[18px] max-lg:grid-cols-1">
+          <MarketplaceMap className="min-h-[438px] max-lg:min-h-[340px] max-sm:min-h-[300px]" />
+
+          <div className="grid min-w-0 grid-rows-[minmax(282px,1fr)_auto] gap-[18px] max-lg:grid-rows-[minmax(282px,auto)_auto]">
+            <MarketplaceBanner />
+            <MarketplaceFilters />
+          </div>
+        </div>
+
+        <FeaturedPlaces className="mt-3.5" />
       </section>
 
+      {/* Demais blocos existentes, fora do escopo desta etapa. */}
       <CategoryGrid compact />
       <div className="pt-2 sm:pt-4">
         <SolutionsGrid />
       </div>
 
-      {/* FAQ + CTA */}
       <section className="section-shell grid gap-4 pb-10 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
         <FaqBlock />
         <CourierCta />

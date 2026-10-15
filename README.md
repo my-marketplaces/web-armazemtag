@@ -43,7 +43,7 @@ src/
 
 ```sh
 git clone <url-do-repositorio>
-cd armazemtag-site
+cd app-armazemtag
 npm install
 ```
 

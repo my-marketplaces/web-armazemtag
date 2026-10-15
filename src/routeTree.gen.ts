@@ -10,14 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CampanhasRouteImport } from './routes/campanhas'
+import { Route as ClassificadosRouteImport } from './routes/classificados'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as EntregadoresRouteImport } from './routes/entregadores'
 import { Route as EstabelecimentosRouteImport } from './routes/estabelecimentos'
+import { Route as FeirasRouteImport } from './routes/feiras'
+import { Route as MercadosRouteImport } from './routes/mercados'
+import { Route as OfertasRouteImport } from './routes/ofertas'
 import { Route as SuporteRouteImport } from './routes/suporte'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampanhasRoute = CampanhasRouteImport.update({
+  id: '/campanhas',
+  path: '/campanhas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClassificadosRoute = ClassificadosRouteImport.update({
+  id: '/classificados',
+  path: '/classificados',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
@@ -35,6 +50,21 @@ const EstabelecimentosRoute = EstabelecimentosRouteImport.update({
   path: '/estabelecimentos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeirasRoute = FeirasRouteImport.update({
+  id: '/feiras',
+  path: '/feiras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MercadosRoute = MercadosRouteImport.update({
+  id: '/mercados',
+  path: '/mercados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfertasRoute = OfertasRouteImport.update({
+  id: '/ofertas',
+  path: '/ofertas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SuporteRoute = SuporteRouteImport.update({
   id: '/suporte',
   path: '/suporte',
@@ -43,47 +73,90 @@ const SuporteRoute = SuporteRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/campanhas': typeof CampanhasRoute
+  '/classificados': typeof ClassificadosRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/entregadores': typeof EntregadoresRoute
   '/estabelecimentos': typeof EstabelecimentosRoute
+  '/feiras': typeof FeirasRoute
+  '/mercados': typeof MercadosRoute
+  '/ofertas': typeof OfertasRoute
   '/suporte': typeof SuporteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/campanhas': typeof CampanhasRoute
+  '/classificados': typeof ClassificadosRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/entregadores': typeof EntregadoresRoute
   '/estabelecimentos': typeof EstabelecimentosRoute
+  '/feiras': typeof FeirasRoute
+  '/mercados': typeof MercadosRoute
+  '/ofertas': typeof OfertasRoute
   '/suporte': typeof SuporteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/campanhas': typeof CampanhasRoute
+  '/classificados': typeof ClassificadosRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/entregadores': typeof EntregadoresRoute
   '/estabelecimentos': typeof EstabelecimentosRoute
+  '/feiras': typeof FeirasRoute
+  '/mercados': typeof MercadosRoute
+  '/ofertas': typeof OfertasRoute
   '/suporte': typeof SuporteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/como-funciona' | '/entregadores' | '/estabelecimentos' | '/suporte'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    '/' | '/como-funciona' | '/entregadores' | '/estabelecimentos' | '/suporte'
-  id:
-    | '__root__'
     | '/'
+    | '/campanhas'
+    | '/classificados'
     | '/como-funciona'
     | '/entregadores'
     | '/estabelecimentos'
+    | '/feiras'
+    | '/mercados'
+    | '/ofertas'
+    | '/suporte'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/campanhas'
+    | '/classificados'
+    | '/como-funciona'
+    | '/entregadores'
+    | '/estabelecimentos'
+    | '/feiras'
+    | '/mercados'
+    | '/ofertas'
+    | '/suporte'
+  id:
+    | '__root__'
+    | '/'
+    | '/campanhas'
+    | '/classificados'
+    | '/como-funciona'
+    | '/entregadores'
+    | '/estabelecimentos'
+    | '/feiras'
+    | '/mercados'
+    | '/ofertas'
     | '/suporte'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CampanhasRoute: typeof CampanhasRoute
+  ClassificadosRoute: typeof ClassificadosRoute
   ComoFuncionaRoute: typeof ComoFuncionaRoute
   EntregadoresRoute: typeof EntregadoresRoute
   EstabelecimentosRoute: typeof EstabelecimentosRoute
+  FeirasRoute: typeof FeirasRoute
+  MercadosRoute: typeof MercadosRoute
+  OfertasRoute: typeof OfertasRoute
   SuporteRoute: typeof SuporteRoute
 }
 
@@ -94,6 +167,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campanhas': {
+      id: '/campanhas'
+      path: '/campanhas'
+      fullPath: '/campanhas'
+      preLoaderRoute: typeof CampanhasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/classificados': {
+      id: '/classificados'
+      path: '/classificados'
+      fullPath: '/classificados'
+      preLoaderRoute: typeof ClassificadosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/como-funciona': {
@@ -117,6 +204,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EstabelecimentosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feiras': {
+      id: '/feiras'
+      path: '/feiras'
+      fullPath: '/feiras'
+      preLoaderRoute: typeof FeirasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mercados': {
+      id: '/mercados'
+      path: '/mercados'
+      fullPath: '/mercados'
+      preLoaderRoute: typeof MercadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ofertas': {
+      id: '/ofertas'
+      path: '/ofertas'
+      fullPath: '/ofertas'
+      preLoaderRoute: typeof OfertasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/suporte': {
       id: '/suporte'
       path: '/suporte'
@@ -129,9 +237,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CampanhasRoute: CampanhasRoute,
+  ClassificadosRoute: ClassificadosRoute,
   ComoFuncionaRoute: ComoFuncionaRoute,
   EntregadoresRoute: EntregadoresRoute,
   EstabelecimentosRoute: EstabelecimentosRoute,
+  FeirasRoute: FeirasRoute,
+  MercadosRoute: MercadosRoute,
+  OfertasRoute: OfertasRoute,
   SuporteRoute: SuporteRoute,
 }
 export const routeTree = rootRouteImport

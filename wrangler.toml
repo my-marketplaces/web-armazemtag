@@ -1,3 +1,3 @@
-name = "armazemtag-site"
+name = "app-armazemtag"
 compatibility_date = "2026-09-04"
 pages_build_output_dir = "dist"

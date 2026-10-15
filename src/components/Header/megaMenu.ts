@@ -1,44 +1,75 @@
-export const navItems = [
-  { label: "A empresa", to: "/" },
+import { BadgePercent, Megaphone, Store, Tag, Tent, type LucideIcon } from "lucide-react";
+
+export type NavLink = { label: string; to: string };
+
+export type SimpleNavItem = { label: string; to: string; icon: LucideIcon };
+export type MegaNavItem = { label: string; to: string; icon: LucideIcon; links: NavLink[] };
+export type NavItem = SimpleNavItem | MegaNavItem;
+
+export const navItems: NavItem[] = [
   {
-    label: "Estabelecimentos",
-    to: "/estabelecimentos",
+    label: "Feiras",
+    to: "/feiras",
+    icon: Tent,
     links: [
-      { label: "Conheça a plataforma", to: "/estabelecimentos" },
-      { label: "Feiras e mercados", to: "/estabelecimentos" },
-      { label: "Produtos e ofertas", to: "/estabelecimentos" },
-      { label: "Receber pedidos", to: "/como-funciona" },
-      { label: "Área do empreendedor", to: "/como-funciona" },
+      { label: "Todas as feiras", to: "/feiras" },
+      { label: "Feira da Pedreira", to: "/feiras" },
+      { label: "Ver-o-Peso", to: "/feiras" },
+      { label: "Feiras orgânicas", to: "/feiras" },
+      { label: "Como vender na feira", to: "/como-funciona" },
       { label: "Preciso de ajuda", to: "/suporte" },
     ],
   },
   {
-    label: "Entregadores",
-    to: "/entregadores",
+    label: "Mercados",
+    to: "/mercados",
+    icon: Store,
     links: [
-      { label: "Quero fazer entregas", to: "/entregadores" },
-      { label: "Entregas de bicicleta", to: "/entregadores" },
-      { label: "Rotas menores", to: "/entregadores" },
-      { label: "Como funciona o app", to: "/como-funciona" },
-      { label: "Regiões atendidas", to: "/entregadores" },
-      { label: "Suporte ao entregador", to: "/suporte" },
+      { label: "Todos os mercados", to: "/mercados" },
+      { label: "Mercados do bairro", to: "/mercados" },
+      { label: "Hortifrúti", to: "/mercados" },
+      { label: "Açougue e peixaria", to: "/mercados" },
+      { label: "Cadastrar meu mercado", to: "/estabelecimentos" },
+      { label: "Preciso de ajuda", to: "/suporte" },
     ],
   },
   {
-    label: "Como funciona",
-    to: "/como-funciona",
+    label: "Classificados",
+    to: "/classificados",
+    icon: Tag,
     links: [
-      { label: "Comprar pelo aplicativo", to: "/como-funciona" },
-      { label: "Vender pelo Armazém Tag", to: "/estabelecimentos" },
-      { label: "Fazer entregas", to: "/entregadores" },
-      { label: "App do cliente", to: "/como-funciona" },
-      { label: "App do parceiro", to: "/como-funciona" },
-      { label: "App do entregador", to: "/como-funciona" },
-      { label: "Perguntas frequentes", to: "/suporte" },
+      { label: "Explorar classificados", to: "/classificados" },
+      { label: "Moda e acessórios", to: "/classificados" },
+      { label: "Casa e construção", to: "/classificados" },
+      { label: "Serviços locais", to: "/classificados" },
+      { label: "Anunciar um produto", to: "/classificados" },
+      { label: "Preciso de ajuda", to: "/suporte" },
     ],
   },
-  { label: "Suporte", to: "/suporte" },
-] as const;
-
-export type NavItem = (typeof navItems)[number];
-export type MegaNavItem = Extract<NavItem, { links: unknown }>;
+  {
+    label: "Campanhas",
+    to: "/campanhas",
+    icon: Megaphone,
+    links: [
+      { label: "Campanhas ativas", to: "/campanhas" },
+      { label: "Ofertas da semana", to: "/ofertas" },
+      { label: "Promoções de feirantes", to: "/campanhas" },
+      { label: "Divulgar uma campanha", to: "/campanhas" },
+      { label: "Como funciona", to: "/como-funciona" },
+      { label: "Preciso de ajuda", to: "/suporte" },
+    ],
+  },
+  {
+    label: "Ofertas",
+    to: "/ofertas",
+    icon: BadgePercent,
+    links: [
+      { label: "Todas as ofertas", to: "/ofertas" },
+      { label: "Produtos frescos", to: "/ofertas" },
+      { label: "Comida local", to: "/ofertas" },
+      { label: "Artesanato regional", to: "/ofertas" },
+      { label: "Quero divulgar ofertas", to: "/estabelecimentos" },
+      { label: "Preciso de ajuda", to: "/suporte" },
+    ],
+  },
+];
