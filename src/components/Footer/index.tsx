@@ -122,8 +122,7 @@ export function Footer() {
         ))}
       </div>
       <div className="border-t border-primary-foreground/20 py-4 text-center text-xs opacity-70">
-        © 2026 Armazém Tag Delivery. CNPJ 68.956.874/0001-50. Uma empresa Digitals Lab Venture
-        Studio.
+        © 2026 Armazém Tag . CNPJ 69.736.940/0001-40. Uma empresa AE Advisory IS.
       </div>
     </footer>
   );

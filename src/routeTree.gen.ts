@@ -19,6 +19,24 @@ import { Route as FeirasRouteImport } from './routes/feiras'
 import { Route as MercadosRouteImport } from './routes/mercados'
 import { Route as OfertasRouteImport } from './routes/ofertas'
 import { Route as SuporteRouteImport } from './routes/suporte'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as Admin_layoutRouteImport } from './routes/admin/__layout'
+import { Route as AdminAnunciosRouteImport } from './routes/admin/anuncios'
+import { Route as AdminAuditoriaRouteImport } from './routes/admin/auditoria'
+import { Route as AdminCadastrosRouteImport } from './routes/admin/cadastros'
+import { Route as AdminConfiguracoesRouteImport } from './routes/admin/configuracoes'
+import { Route as AdminEquipeRouteImport } from './routes/admin/equipe'
+import { Route as AdminFinanceiroRouteImport } from './routes/admin/financeiro'
+import { Route as AdminIndicacoesRouteImport } from './routes/admin/indicacoes'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminLojasRouteImport } from './routes/admin/lojas'
+import { Route as AdminPlanosRouteImport } from './routes/admin/planos'
+import { Route as AdminPreviewRouteImport } from './routes/admin/preview'
+import { Route as AdminRelatoriosRouteImport } from './routes/admin/relatorios'
+import { Route as AdminSegurancaRouteImport } from './routes/admin/seguranca'
+import { Route as AdminStoresRouteImport } from './routes/admin/stores'
+import { Route as AdminSuporteRouteImport } from './routes/admin/suporte'
+import { Route as AdminUsersRouteImport } from './routes/admin/users'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +88,96 @@ const SuporteRoute = SuporteRouteImport.update({
   path: '/suporte',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Admin_layoutRoute = Admin_layoutRouteImport.update({
+  id: '/admin/__layout',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnunciosRoute = AdminAnunciosRouteImport.update({
+  id: '/admin/anuncios',
+  path: '/admin/anuncios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuditoriaRoute = AdminAuditoriaRouteImport.update({
+  id: '/admin/auditoria',
+  path: '/admin/auditoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCadastrosRoute = AdminCadastrosRouteImport.update({
+  id: '/admin/cadastros',
+  path: '/admin/cadastros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConfiguracoesRoute = AdminConfiguracoesRouteImport.update({
+  id: '/admin/configuracoes',
+  path: '/admin/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEquipeRoute = AdminEquipeRouteImport.update({
+  id: '/admin/equipe',
+  path: '/admin/equipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFinanceiroRoute = AdminFinanceiroRouteImport.update({
+  id: '/admin/financeiro',
+  path: '/admin/financeiro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndicacoesRoute = AdminIndicacoesRouteImport.update({
+  id: '/admin/indicacoes',
+  path: '/admin/indicacoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLojasRoute = AdminLojasRouteImport.update({
+  id: '/admin/lojas',
+  path: '/admin/lojas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPlanosRoute = AdminPlanosRouteImport.update({
+  id: '/admin/planos',
+  path: '/admin/planos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPreviewRoute = AdminPreviewRouteImport.update({
+  id: '/admin/preview',
+  path: '/admin/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRelatoriosRoute = AdminRelatoriosRouteImport.update({
+  id: '/admin/relatorios',
+  path: '/admin/relatorios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSegurancaRoute = AdminSegurancaRouteImport.update({
+  id: '/admin/seguranca',
+  path: '/admin/seguranca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStoresRoute = AdminStoresRouteImport.update({
+  id: '/admin/stores',
+  path: '/admin/stores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSuporteRoute = AdminSuporteRouteImport.update({
+  id: '/admin/suporte',
+  path: '/admin/suporte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +190,24 @@ export interface FileRoutesByFullPath {
   '/mercados': typeof MercadosRoute
   '/ofertas': typeof OfertasRoute
   '/suporte': typeof SuporteRoute
+  '/admin': typeof Admin_layoutRoute
+  '/admin/anuncios': typeof AdminAnunciosRoute
+  '/admin/auditoria': typeof AdminAuditoriaRoute
+  '/admin/cadastros': typeof AdminCadastrosRoute
+  '/admin/configuracoes': typeof AdminConfiguracoesRoute
+  '/admin/equipe': typeof AdminEquipeRoute
+  '/admin/financeiro': typeof AdminFinanceiroRoute
+  '/admin/indicacoes': typeof AdminIndicacoesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/lojas': typeof AdminLojasRoute
+  '/admin/planos': typeof AdminPlanosRoute
+  '/admin/preview': typeof AdminPreviewRoute
+  '/admin/relatorios': typeof AdminRelatoriosRoute
+  '/admin/seguranca': typeof AdminSegurancaRoute
+  '/admin/stores': typeof AdminStoresRoute
+  '/admin/suporte': typeof AdminSuporteRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +220,23 @@ export interface FileRoutesByTo {
   '/mercados': typeof MercadosRoute
   '/ofertas': typeof OfertasRoute
   '/suporte': typeof SuporteRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/anuncios': typeof AdminAnunciosRoute
+  '/admin/auditoria': typeof AdminAuditoriaRoute
+  '/admin/cadastros': typeof AdminCadastrosRoute
+  '/admin/configuracoes': typeof AdminConfiguracoesRoute
+  '/admin/equipe': typeof AdminEquipeRoute
+  '/admin/financeiro': typeof AdminFinanceiroRoute
+  '/admin/indicacoes': typeof AdminIndicacoesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/lojas': typeof AdminLojasRoute
+  '/admin/planos': typeof AdminPlanosRoute
+  '/admin/preview': typeof AdminPreviewRoute
+  '/admin/relatorios': typeof AdminRelatoriosRoute
+  '/admin/seguranca': typeof AdminSegurancaRoute
+  '/admin/stores': typeof AdminStoresRoute
+  '/admin/suporte': typeof AdminSuporteRoute
+  '/admin/users': typeof AdminUsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +250,24 @@ export interface FileRoutesById {
   '/mercados': typeof MercadosRoute
   '/ofertas': typeof OfertasRoute
   '/suporte': typeof SuporteRoute
+  '/admin/__layout': typeof Admin_layoutRoute
+  '/admin/anuncios': typeof AdminAnunciosRoute
+  '/admin/auditoria': typeof AdminAuditoriaRoute
+  '/admin/cadastros': typeof AdminCadastrosRoute
+  '/admin/configuracoes': typeof AdminConfiguracoesRoute
+  '/admin/equipe': typeof AdminEquipeRoute
+  '/admin/financeiro': typeof AdminFinanceiroRoute
+  '/admin/indicacoes': typeof AdminIndicacoesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/lojas': typeof AdminLojasRoute
+  '/admin/planos': typeof AdminPlanosRoute
+  '/admin/preview': typeof AdminPreviewRoute
+  '/admin/relatorios': typeof AdminRelatoriosRoute
+  '/admin/seguranca': typeof AdminSegurancaRoute
+  '/admin/stores': typeof AdminStoresRoute
+  '/admin/suporte': typeof AdminSuporteRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +282,24 @@ export interface FileRouteTypes {
     | '/mercados'
     | '/ofertas'
     | '/suporte'
+    | '/admin'
+    | '/admin/anuncios'
+    | '/admin/auditoria'
+    | '/admin/cadastros'
+    | '/admin/configuracoes'
+    | '/admin/equipe'
+    | '/admin/financeiro'
+    | '/admin/indicacoes'
+    | '/admin/login'
+    | '/admin/lojas'
+    | '/admin/planos'
+    | '/admin/preview'
+    | '/admin/relatorios'
+    | '/admin/seguranca'
+    | '/admin/stores'
+    | '/admin/suporte'
+    | '/admin/users'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +312,23 @@ export interface FileRouteTypes {
     | '/mercados'
     | '/ofertas'
     | '/suporte'
+    | '/admin'
+    | '/admin/anuncios'
+    | '/admin/auditoria'
+    | '/admin/cadastros'
+    | '/admin/configuracoes'
+    | '/admin/equipe'
+    | '/admin/financeiro'
+    | '/admin/indicacoes'
+    | '/admin/login'
+    | '/admin/lojas'
+    | '/admin/planos'
+    | '/admin/preview'
+    | '/admin/relatorios'
+    | '/admin/seguranca'
+    | '/admin/stores'
+    | '/admin/suporte'
+    | '/admin/users'
   id:
     | '__root__'
     | '/'
@@ -145,6 +341,24 @@ export interface FileRouteTypes {
     | '/mercados'
     | '/ofertas'
     | '/suporte'
+    | '/admin/__layout'
+    | '/admin/anuncios'
+    | '/admin/auditoria'
+    | '/admin/cadastros'
+    | '/admin/configuracoes'
+    | '/admin/equipe'
+    | '/admin/financeiro'
+    | '/admin/indicacoes'
+    | '/admin/login'
+    | '/admin/lojas'
+    | '/admin/planos'
+    | '/admin/preview'
+    | '/admin/relatorios'
+    | '/admin/seguranca'
+    | '/admin/stores'
+    | '/admin/suporte'
+    | '/admin/users'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +372,24 @@ export interface RootRouteChildren {
   MercadosRoute: typeof MercadosRoute
   OfertasRoute: typeof OfertasRoute
   SuporteRoute: typeof SuporteRoute
+  Admin_layoutRoute: typeof Admin_layoutRoute
+  AdminAnunciosRoute: typeof AdminAnunciosRoute
+  AdminAuditoriaRoute: typeof AdminAuditoriaRoute
+  AdminCadastrosRoute: typeof AdminCadastrosRoute
+  AdminConfiguracoesRoute: typeof AdminConfiguracoesRoute
+  AdminEquipeRoute: typeof AdminEquipeRoute
+  AdminFinanceiroRoute: typeof AdminFinanceiroRoute
+  AdminIndicacoesRoute: typeof AdminIndicacoesRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminLojasRoute: typeof AdminLojasRoute
+  AdminPlanosRoute: typeof AdminPlanosRoute
+  AdminPreviewRoute: typeof AdminPreviewRoute
+  AdminRelatoriosRoute: typeof AdminRelatoriosRoute
+  AdminSegurancaRoute: typeof AdminSegurancaRoute
+  AdminStoresRoute: typeof AdminStoresRoute
+  AdminSuporteRoute: typeof AdminSuporteRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +464,132 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SuporteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/__layout': {
+      id: '/admin/__layout'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof Admin_layoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/anuncios': {
+      id: '/admin/anuncios'
+      path: '/admin/anuncios'
+      fullPath: '/admin/anuncios'
+      preLoaderRoute: typeof AdminAnunciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/auditoria': {
+      id: '/admin/auditoria'
+      path: '/admin/auditoria'
+      fullPath: '/admin/auditoria'
+      preLoaderRoute: typeof AdminAuditoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/cadastros': {
+      id: '/admin/cadastros'
+      path: '/admin/cadastros'
+      fullPath: '/admin/cadastros'
+      preLoaderRoute: typeof AdminCadastrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/configuracoes': {
+      id: '/admin/configuracoes'
+      path: '/admin/configuracoes'
+      fullPath: '/admin/configuracoes'
+      preLoaderRoute: typeof AdminConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/equipe': {
+      id: '/admin/equipe'
+      path: '/admin/equipe'
+      fullPath: '/admin/equipe'
+      preLoaderRoute: typeof AdminEquipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/financeiro': {
+      id: '/admin/financeiro'
+      path: '/admin/financeiro'
+      fullPath: '/admin/financeiro'
+      preLoaderRoute: typeof AdminFinanceiroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/indicacoes': {
+      id: '/admin/indicacoes'
+      path: '/admin/indicacoes'
+      fullPath: '/admin/indicacoes'
+      preLoaderRoute: typeof AdminIndicacoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/lojas': {
+      id: '/admin/lojas'
+      path: '/admin/lojas'
+      fullPath: '/admin/lojas'
+      preLoaderRoute: typeof AdminLojasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/planos': {
+      id: '/admin/planos'
+      path: '/admin/planos'
+      fullPath: '/admin/planos'
+      preLoaderRoute: typeof AdminPlanosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/preview': {
+      id: '/admin/preview'
+      path: '/admin/preview'
+      fullPath: '/admin/preview'
+      preLoaderRoute: typeof AdminPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/relatorios': {
+      id: '/admin/relatorios'
+      path: '/admin/relatorios'
+      fullPath: '/admin/relatorios'
+      preLoaderRoute: typeof AdminRelatoriosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/seguranca': {
+      id: '/admin/seguranca'
+      path: '/admin/seguranca'
+      fullPath: '/admin/seguranca'
+      preLoaderRoute: typeof AdminSegurancaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/stores': {
+      id: '/admin/stores'
+      path: '/admin/stores'
+      fullPath: '/admin/stores'
+      preLoaderRoute: typeof AdminStoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/suporte': {
+      id: '/admin/suporte'
+      path: '/admin/suporte'
+      fullPath: '/admin/suporte'
+      preLoaderRoute: typeof AdminSuporteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +604,24 @@ const rootRouteChildren: RootRouteChildren = {
   MercadosRoute: MercadosRoute,
   OfertasRoute: OfertasRoute,
   SuporteRoute: SuporteRoute,
+  Admin_layoutRoute: Admin_layoutRoute,
+  AdminAnunciosRoute: AdminAnunciosRoute,
+  AdminAuditoriaRoute: AdminAuditoriaRoute,
+  AdminCadastrosRoute: AdminCadastrosRoute,
+  AdminConfiguracoesRoute: AdminConfiguracoesRoute,
+  AdminEquipeRoute: AdminEquipeRoute,
+  AdminFinanceiroRoute: AdminFinanceiroRoute,
+  AdminIndicacoesRoute: AdminIndicacoesRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminLojasRoute: AdminLojasRoute,
+  AdminPlanosRoute: AdminPlanosRoute,
+  AdminPreviewRoute: AdminPreviewRoute,
+  AdminRelatoriosRoute: AdminRelatoriosRoute,
+  AdminSegurancaRoute: AdminSegurancaRoute,
+  AdminStoresRoute: AdminStoresRoute,
+  AdminSuporteRoute: AdminSuporteRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

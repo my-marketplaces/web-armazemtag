@@ -38,6 +38,9 @@ export default defineConfig(({ command }) => {
       host: "::",
       port: 8080,
     },
+    ssr: {
+      noExternal: [],
+    },
     plugins: [
       tailwindcss(),
       tsconfigPaths({ projects: ["./tsconfig.json"] }),

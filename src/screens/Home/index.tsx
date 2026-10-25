@@ -26,12 +26,12 @@ export function Home() {
         <div className="mx-auto mt-3.5 mb-4.5 text-center">
           <h1
             id="marketplace-title"
-            className="font-display text-[clamp(34px,3.25vw,54px)] leading-[1.12] font-extrabold tracking-[-0.035em] text-[#080808] max-sm:text-[34px] max-sm:leading-[1.04]"
+            className="font-display text-[clamp(32px,3vw,50px)] leading-[1.12] font-extrabold tracking-[-0.035em] text-[#080808] max-sm:text-[32px] max-sm:leading-[1.04]"
           >
             Compre, venda e descubra produtos perto de você.
           </h1>
 
-          <p className="mx-auto mt-2 max-w-[1100px] text-[clamp(17px,1.35vw,22px)] leading-[1.25] text-[#897b79] max-sm:mt-3 max-sm:text-base max-sm:leading-[1.4]">
+          <p className="mx-auto mt-2 max-w-[1100px] text-[clamp(16px,1.22vw,20px)] leading-[1.25] text-[#897b79] max-sm:mt-3 max-sm:text-base max-sm:leading-[1.4]">
             Conectamos você a feiras, mercados, lojas e vendedores da região para encontrar ofertas,
             <br className="hidden lg:block" /> divulgar produtos e fazer bons negócios com mais
             proximidade e confiança.
@@ -47,11 +47,11 @@ export function Home() {
           </div>
         </div>
 
+        <CategoryGrid compact />
         <FeaturedPlaces className="mt-3.5" />
       </section>
 
       {/* Demais blocos existentes, fora do escopo desta etapa. */}
-      <CategoryGrid compact />
       <div className="pt-2 sm:pt-4">
         <SolutionsGrid />
       </div>
