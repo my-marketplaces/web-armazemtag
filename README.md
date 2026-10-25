@@ -33,6 +33,29 @@ src/
   types/            # Definições de tipo
 ```
 
+## Painel Administrativo
+
+O painel administrativo roda em `/admin` e usa autenticação Clerk (OAuth Google). O backend é o mesmo `armazemtag-backend` já implantado.
+
+### Rotas admin
+
+- `/admin/login` — login com Google
+- `/admin` — dashboard
+- `/admin/users` — lista de usuários
+- `/admin/stores` — lista de lojas
+- `/admin/audit` — eventos de auditoria
+
+### Configuração
+
+Copie `.env.example` para `.env`:
+
+```sh
+cp .env.example .env
+```
+
+- `VITE_CLERK_PUBLISHABLE_KEY` — chave pública do Clerk (obter no dashboard)
+- `VITE_API_BASE_URL` — URL da API publicada (padrão: `https://app-armazem-backend.v22aau.easypanel.host/api/v1`)
+
 ## Desenvolvimento
 
 ### Pré-requisitos
@@ -43,7 +66,7 @@ src/
 
 ```sh
 git clone <url-do-repositorio>
-cd app-armazemtag
+cd web-armazemtag
 npm install
 ```
 

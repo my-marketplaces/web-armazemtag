@@ -58,7 +58,12 @@ export function CategoryGrid({ compact = false }: { compact?: boolean }) {
     if (e.pointerType !== "mouse" || e.button !== 0) return;
     const el = containerRef.current;
     if (!el) return;
-    dragRef.current = { startX: e.clientX, startScroll: el.scrollLeft, dragging: true, moved: false };
+    dragRef.current = {
+      startX: e.clientX,
+      startScroll: el.scrollLeft,
+      dragging: true,
+      moved: false,
+    };
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -133,9 +138,9 @@ export function CategoryGrid({ compact = false }: { compact?: boolean }) {
         >
           {categories.map((category) => (
             <article key={category.name} className="category-card">
-<div className="category-card__image">
-  <img src={category.image} alt={category.name} loading="lazy" />
-</div>
+              <div className="category-card__image">
+                <img src={category.image} alt={category.name} loading="lazy" />
+              </div>
               <span className="category-card__name">{category.name}</span>
             </article>
           ))}
