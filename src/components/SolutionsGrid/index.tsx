@@ -32,17 +32,13 @@ const solutions = [
 export function SolutionsGrid() {
   return (
     <section id="solucoes" className="section-shell pb-10 sm:pb-14">
-      <SectionTitle className="solutions-section__title">
-        Nossas soluções para todos
-      </SectionTitle>
+      <SectionTitle className="solutions-section__title">Nossas soluções para todos</SectionTitle>
       <div className="grid gap-3 md:grid-cols-3 mt-1 sm:mt-2">
         {solutions.map(({ title, text, to, mockup, deviceAlt }, i) => {
           const isFeatured = Boolean(mockup);
           const cardClasses = `rounded-card ${
             i === 1 ? "bg-[#faf9f8]" : i % 2 === 0 ? "bg-tint" : "bg-soft"
-          }${
-            isFeatured ? " solution-card solution-card--client" : " min-h-48 p-5"
-          }`;
+          }${isFeatured ? " solution-card solution-card--client" : " min-h-48 p-5"}`;
 
           return (
             <article key={title} className={cardClasses}>
@@ -71,11 +67,7 @@ export function SolutionsGrid() {
               </div>
               {isFeatured && (
                 <div className="solution-card__device-wrapper">
-                  <img
-                    src={mockup}
-                    alt={deviceAlt}
-                    className="solution-card__device"
-                  />
+                  <img src={mockup} alt={deviceAlt} className="solution-card__device" />
                 </div>
               )}
             </article>

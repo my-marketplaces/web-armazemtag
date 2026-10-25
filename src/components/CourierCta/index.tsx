@@ -11,11 +11,11 @@ export function CourierCta() {
     >
       <div className="flex flex-col justify-center p-7">
         <h2 className="font-display text-3xl font-extrabold">
-          O entregador é seu.
+          O negócio é seu.
           <br />A tecnologia é nossa.
         </h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Você escolhe quem entrega. A Armazém Tag organiza os pedidos, o acompanhamento e a
+          Você escolhe como vende. A Armazém Tag organiza seus anúncios, dá visibilidade e facilita a
           comunicação em um só lugar.
         </p>
         <Button asChild variant="hero" className="mt-6 w-fit">
