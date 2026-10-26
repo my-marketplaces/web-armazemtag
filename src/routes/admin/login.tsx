@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { AdminLoginView } from "@/components/admin/AdminLoginView";
+import { createFileRoute } from "@tanstack/react-router";
+import { SignIn } from "@clerk/tanstack-react-start";
 import adminLoginCss from "@/styles/admin-login.css?url";
 
 export const Route = createFileRoute("/admin/login")({
@@ -9,27 +9,21 @@ export const Route = createFileRoute("/admin/login")({
   component: AdminLoginPage,
 });
 
-const LOGO_SRC = "/assets/logos/armazem-tag-classificados.png";
-const BACKGROUND_SRC = "/assets/backgrounds/login-bg.jpg";
-const GOOGLE_ICON_SRC = "/assets/icons/google.svg";
-
 function AdminLoginPage() {
-  const showPreview = import.meta.env.DEV;
-
   return (
-    <>
-      <AdminLoginView
-        logoSrc={LOGO_SRC}
-        backgroundSrc={BACKGROUND_SRC}
-        googleIconSrc={GOOGLE_ICON_SRC}
-        onGoogleLogin={undefined}
-        busy={false}
+    <div className="at-login">
+      <SignIn
+        routing="path"
+        path="/admin/login"
+        signUpUrl="/admin/login"
+        forceRedirectUrl="/admin"
+        appearance={{
+          elements: {
+            rootBox: "at-login__panel",
+            card: "at-login__form",
+          },
+        }}
       />
-      {showPreview && (
-        <div className="at-login__preview-link">
-          <Link to="/admin/preview">Visualizar dashboard</Link>
-        </div>
-      )}
-    </>
+    </div>
   );
 }

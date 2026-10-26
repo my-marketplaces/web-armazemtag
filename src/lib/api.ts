@@ -23,6 +23,8 @@ export interface PaginatedResponse<T> {
   meta: PaginationMeta;
 }
 
+const REQUEST_TIMEOUT_MS = 15000;
+
 export async function apiFetch<T>(
   path: string,
   options: RequestInit & { token?: string } = {},
@@ -36,10 +38,25 @@ export async function apiFetch<T>(
     headers.set("Authorization", `Bearer ${token}`);
   }
 
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...fetchOptions,
-    headers,
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE_URL}${path}`, {
+      ...fetchOptions,
+      headers,
+      signal: controller.signal,
+    });
+  } catch (err) {
+    clearTimeout(timeoutId);
+    if (err instanceof Error && err.name === "AbortError") {
+      throw new ApiError(0, "Tempo esgotado ao consultar o servidor. Tente novamente.");
+    }
+    throw new ApiError(0, "Sem conexão com o servidor. Verifique sua rede e tente novamente.");
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (!response.ok) {
     let body: any = null;
