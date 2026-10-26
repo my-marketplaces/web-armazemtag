@@ -1,0 +1,486 @@
+.cad-page {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 12px;
+  color: #30272c;
+  font-size: 12px;
+}
+
+.cad-page,
+.cad-page * {
+  box-sizing: border-box;
+}
+
+.cad-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #eee8eb;
+  border-radius: 16px;
+  background: #fff;
+}
+
+/* Toolbar */
+.cad-toolbar {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee8eb;
+}
+
+.cad-toolbar label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  font-size: 11px;
+  color: #62545d;
+}
+
+.cad-toolbar label > span {
+  display: none;
+}
+
+.cad-toolbar .cad-search {
+  flex: 1 1 240px;
+}
+
+.cad-toolbar input,
+.cad-toolbar select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid #ddd5da;
+  border-radius: 9px;
+  background: #fff;
+  color: #30272c;
+  font: inherit;
+  font-size: 12px;
+}
+
+.cad-toolbar input::placeholder {
+  color: #80727b;
+}
+
+.cad-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid #ddd5da;
+  border-radius: 9px;
+  background: #fff;
+  color: #594a52;
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.cad-toolbar .cad-new {
+  border-color: #790b27;
+  background: #790b27;
+  color: #fff;
+}
+
+.cad-new svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Table */
+.cad-table-wrap {
+  max-height: clamp(220px, 58svh, 640px);
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.cad-page table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.cad-page th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 11px 14px;
+  border-bottom: 1px solid #eee8eb;
+  background: #fcfafb;
+  color: #71636b;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cad-page td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f2edf0;
+  color: #443840;
+  font-size: 12px;
+}
+
+.cad-page tbody tr:hover {
+  background: #fdf9fb;
+}
+
+.cad-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cad-row-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #eee8eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #71656d;
+  cursor: pointer;
+}
+
+.cad-row-actions svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1.7;
+}
+
+.cad-row-actions button:hover {
+  background: #f8edf0;
+  color: #790b27;
+}
+
+/* Empty */
+.cad-empty {
+  padding: 36px 16px;
+  color: #71656d;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Pagination */
+.cad-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid #eee8eb;
+  background: #fff;
+  color: #71636d;
+  font-size: 11px;
+}
+
+.cad-pagination-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cad-pagination-controls span {
+  padding: 0 4px;
+}
+
+.cad-pagination button,
+.cad-pagination select {
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid #ddd5da;
+  border-radius: 8px;
+  background: #fff;
+  color: #594a52;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cad-pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Modal overlay (centered) */
+.cad-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(48, 39, 44, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cad-fade-in 0.2s ease;
+  padding: 20px;
+}
+
+@keyframes cad-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cad-modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 40px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(48, 39, 44, 0.18);
+  display: flex;
+  flex-direction: column;
+  animation: cad-scale-in 0.2s ease;
+  overflow: hidden;
+}
+
+.cad-modal--confirm {
+  max-width: 380px;
+}
+
+@keyframes cad-scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cad-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee8eb;
+  flex-shrink: 0;
+}
+
+.cad-modal-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cad-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #eee8eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #71656d;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cad-modal-close:hover {
+  background: #fcfafb;
+}
+
+/* Modal form */
+.cad-modal-form {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cad-modal-fieldset {
+  border: 1px solid #eee8eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 0;
+}
+
+.cad-modal-fieldset legend {
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #71656d;
+}
+
+.cad-modal-radio-group {
+  display: flex;
+  gap: 16px;
+}
+
+.cad-modal-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cad-modal-radio input[type="radio"] {
+  accent-color: #790b27;
+}
+
+.cad-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cad-modal-field > span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #62545d;
+}
+
+.cad-modal-field input,
+.cad-modal-field select {
+  width: 100%;
+  min-height: 38px;
+  padding: 9px 12px;
+  border: 1px solid #ddd5da;
+  border-radius: 10px;
+  background: #fff;
+  color: #30272c;
+  font: inherit;
+  font-size: 12px;
+}
+
+.cad-modal-field input::placeholder {
+  color: #80727b;
+}
+
+.cad-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid #eee8eb;
+}
+
+.cad-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 8px 14px;
+  border: 1px solid #ddd5da;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cad-modal-btn--ghost {
+  background: #fff;
+  color: #594a52;
+}
+
+.cad-modal-btn--primary {
+  background: #790b27;
+  border-color: #790b27;
+  color: #fff;
+}
+
+.cad-modal-btn--danger {
+  background: #fff;
+  border-color: #f5c6cb;
+  color: #b91c1c;
+}
+
+.cad-modal-btn--danger:hover {
+  background: #fef2f2;
+}
+
+.cad-save-confirm {
+  margin: 0;
+  padding: 8px 12px;
+  background: #fff8e5;
+  border: 1px solid #f5e0a0;
+  border-radius: 8px;
+  color: #7a6300;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Modal view mode */
+.cad-modal-view {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.cad-modal-view dl {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.cad-modal-view dt {
+  font-size: 10px;
+  font-weight: 600;
+  color: #71636b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cad-modal-view dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #30272c;
+}
+
+/* Confirm dialog body */
+.cad-modal-confirm-body {
+  padding: 20px;
+}
+
+.cad-modal-confirm-body p {
+  margin: 0;
+  font-size: 13px;
+  color: #30272c;
+  line-height: 1.5;
+}
+
+/* Focus */
+.cad-page :is(button, input, select):focus-visible {
+  outline: 3px solid #c58c9d;
+  outline-offset: 2px;
+}
+
+/* Focus */
+.cad-page :is(button, input, select):focus-visible {
+  outline: 3px solid #c58c9d;
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .cad-toolbar label,
+  .cad-toolbar .cad-search {
+    flex: 1 1 100%;
+  }
+
+  .cad-toolbar > button {
+    flex: 1;
+    min-height: 40px;
+  }
+
+  .cad-modal-overlay {
+    padding: 10px;
+  }
+
+  .cad-modal {
+    max-height: calc(100vh - 20px);
+  }
+}

@@ -36,7 +36,12 @@ export function MobileDrawer({ isOpen, onClose, logoSrc }: MobileDrawerProps) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="at-dashboard-drawer" ref={drawerRef} role="dialog" aria-label="Menu administrativo">
+      <div
+        className="at-dashboard-drawer"
+        ref={drawerRef}
+        role="dialog"
+        aria-label="Menu administrativo"
+      >
         <div className="at-dashboard-drawer-header">
           <img src={logoSrc} alt="Armazém Tag Classificados" style={{ height: 32 }} />
           <button
@@ -54,9 +59,7 @@ export function MobileDrawer({ isOpen, onClose, logoSrc }: MobileDrawerProps) {
             <div key={group.title}>
               <div className="at-dashboard-nav-group">{group.title}</div>
               {group.items.map((item) => {
-                const isActive = item.end
-                  ? pathname === item.to
-                  : pathname.startsWith(item.to);
+                const isActive = item.end ? pathname === item.to : pathname.startsWith(item.to);
 
                 return (
                   <Link

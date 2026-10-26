@@ -32,7 +32,8 @@ export function AdminUsers() {
               <tr>
                 <td colSpan={4}>
                   <div className="at-admin-empty">
-                    Nenhum cadastro para exibir. Os dados aparecerão após a integração com autenticação.
+                    Nenhum cadastro para exibir. Os dados aparecerão após a integração com
+                    autenticação.
                   </div>
                 </td>
               </tr>
