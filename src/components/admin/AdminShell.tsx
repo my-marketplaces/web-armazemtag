@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { useUser, UserButton } from "@clerk/tanstack-react-start";
 import { Menu } from "lucide-react";
 import { AdminSidebar } from "./AdminSidebar";
 import { MobileDrawer } from "./MobileDrawer";
@@ -7,6 +8,42 @@ interface AdminShellProps {
   children: ReactNode;
   logoSrc: string;
   preview?: boolean;
+}
+
+function AuthedUser() {
+  const { user, isLoaded } = useUser();
+
+  if (!isLoaded) {
+    return (
+      <div className="at-dashboard-user">
+        <span>Carregando…</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="at-dashboard-user">
+      <span>
+        {user?.firstName || user?.emailAddresses?.[0]?.emailAddress || "Administrador"}
+      </span>
+      <UserButton
+        appearance={{
+          elements: {
+            userButtonBox: "at-dashboard-user-avatar",
+          },
+        }}
+      />
+    </div>
+  );
+}
+
+function PreviewUser() {
+  return (
+    <div className="at-dashboard-user">
+      <span>Visitante · Prévia</span>
+      <div className="at-dashboard-user-avatar">VP</div>
+    </div>
+  );
 }
 
 export function AdminShell({ children, logoSrc, preview = false }: AdminShellProps) {
@@ -29,21 +66,15 @@ export function AdminShell({ children, logoSrc, preview = false }: AdminShellPro
               <Menu size={20} />
             </button>
             <div>
-              <strong>Armazém Tag</strong>
-              <span>Sistema de gestão administrativa</span>
+              <strong>Sistema de gestão administrativa</strong>
             </div>
           </div>
 
           <div className="at-dashboard-header-actions">
             {preview && (
-              <span className="at-dashboard-preview-badge">
-                Prévia de desenvolvimento
-              </span>
+              <span className="at-dashboard-preview-badge">Prévia de desenvolvimento</span>
             )}
-            <div className="at-dashboard-user">
-              <span>Visitante · Prévia</span>
-              <div className="at-dashboard-user-avatar">VP</div>
-            </div>
+            {preview ? <PreviewUser /> : <AuthedUser />}
           </div>
         </header>
 

@@ -103,9 +103,7 @@ export function AdminSidebar({ logoSrc }: AdminSidebarProps) {
             <div className="at-dashboard-nav-group">{group.title}</div>
             {group.items.map((item) => {
               const Icon = ICON_MAP[item.icon] || LayoutDashboard;
-              const isActive = item.end
-                ? pathname === item.to
-                : pathname.startsWith(item.to);
+              const isActive = item.end ? pathname === item.to : pathname.startsWith(item.to);
 
               return (
                 <Link

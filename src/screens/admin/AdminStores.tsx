@@ -50,8 +50,8 @@ export function AdminStores() {
         <div>
           <p className="text-sm font-medium text-amber-800">Autenticação pendente</p>
           <p className="text-xs text-amber-700 mt-1">
-            A integração com Google OAuth está em desenvolvimento. Os dados abaixo são
-            placeholders e não representam informações reais.
+            A integração com Google OAuth está em desenvolvimento. Os dados abaixo são placeholders
+            e não representam informações reais.
           </p>
         </div>
       </div>

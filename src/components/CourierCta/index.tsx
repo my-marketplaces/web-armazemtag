@@ -15,8 +15,8 @@ export function CourierCta() {
           <br />A tecnologia é nossa.
         </h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          Você escolhe como vende. A Armazém Tag organiza seus anúncios, dá visibilidade e facilita a
-          comunicação em um só lugar.
+          Você escolhe como vende. A Armazém Tag organiza seus anúncios, dá visibilidade e facilita
+          a comunicação em um só lugar.
         </p>
         <Button asChild variant="hero" className="mt-6 w-fit">
           <Link to="/entregadores">
